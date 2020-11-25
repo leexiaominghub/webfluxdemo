@@ -21,6 +21,10 @@ public class UserHandler {
 
         Mono<ServerResponse> notfound = ServerResponse.notFound().build();
         Mono<User> user = this.userService.getUserById(id);
+        System.out.println("1");
+        Mono<User> user2 = this.userService.getUserById(2);
+        System.out.println("2");
+        //user2.subscribe(System.out::println);
         return user.flatMap(p -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(user, User.class))
                 .switchIfEmpty(notfound);
     }
