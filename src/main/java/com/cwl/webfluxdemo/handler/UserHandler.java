@@ -32,6 +32,7 @@ public class UserHandler {
         Mono<ServerResponse> notfound = ServerResponse.notFound().build();
 
         log.info("1");
+        /*
         Mono<User> user = Mono.fromSupplier(() -> {
             try {
                 TimeUnit.SECONDS.sleep(5);
@@ -39,7 +40,9 @@ public class UserHandler {
                 e.printStackTrace();
             }
             return this.users.get(id);});
-        //Mono<User> user = this.userService.getUserById(id);
+
+         */
+        Mono<User> user = this.userService.getUserById(id);
         log.info("2");
 
         //Mono<User> user2 = this.userService.getUserById(2);
